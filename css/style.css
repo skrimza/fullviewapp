@@ -440,6 +440,7 @@ section:hover .app-screen {
     }
     .close-btn {
         background: none;
+        transform: translate(0, -40%);
     }
     .burger-navigation {
         position: absolute;
