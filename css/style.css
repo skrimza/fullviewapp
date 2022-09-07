@@ -606,6 +606,9 @@ section:hover .app-screen {
 /*0px - 575px*/
 
 @media screen and (max-width: 575px) {
+    .header {
+        padding-bottom: 375px;
+    }
     .menu-navigation {
         display: none;
     }
@@ -624,6 +627,10 @@ section:hover .app-screen {
     }
     .header-text {
         font-size: 16px;
+        margin-bottom: 45px;
+    }
+    .phone-weather {
+        height: 75%;
     }
     .lock-title,
     .protect-title,
