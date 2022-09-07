@@ -325,7 +325,7 @@
                 $('body').addClass('body_pointer');
                 $menu_popup.show(0);
                 $menu_popup.animate({
-                        right: parseInt($menu_popup.css('left'), 10) == 0 ? -$menu_popup.outerWidth() : 0
+                        left: parseInt($menu_popup.css('right'), 10) == 0 ? -$menu_popup.outerWidth() : 0
                     },
                     300
                 );
@@ -335,7 +335,7 @@
             $(".menu-close").click(function() {
                 $('body').removeClass('body_pointer');
                 $menu_popup.animate({
-                        right: parseInt($menu_popup.css('right'), 10) == 0 ? -$menu_popup.outerWidth() : 0
+                        left: parseInt($menu_popup.css('left'), 10) == 0 ? -$menu_popup.outerWidth() : 0
                     },
                     300,
                     function() {
