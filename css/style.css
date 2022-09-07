@@ -84,11 +84,14 @@ a:active {
     background: url('../images/header.png') no-repeat center top / cover;
 }
 
+.burger {
+    display: none;
+}
+
 .menu-burger_header {
     position: relative;
     width: 23px;
     height: 30px;
-    display: none;
 }
 
 .menu-burger_header span,
@@ -319,7 +322,7 @@ a:active {
 }
 
 
-/*  fivth screen  */
+/*  firth screen  */
 
 .footer {
     background-color: #f4f4f5;
@@ -431,8 +434,28 @@ section:hover .app-screen {
     .header {
         padding-top: 30px;
     }
-    .menu-burger_header {
+    .burger {
         display: block;
+        position: relative;
+    }
+    .burger-navigation {
+        position: absolute;
+        width: 220px;
+        background: #f4f4f5;
+        z-index: 1;
+        padding: 40px 10px 20px 10px;
+        border-radius: 0 15px;
+        border: 1px solid #85c4be;
+    }
+    .burger-list {
+        text-align: center;
+    }
+    .burger-tab {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #85c4be;
+    }
+    .burger-tab:first-of-type {
+        margin-top: 10px;
     }
     .menu-navigation {
         display: none;
