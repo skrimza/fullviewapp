@@ -149,13 +149,16 @@ a:active {
 .logo {
     margin: 0 auto;
 }
+.logo img {
+    width: 100%;
+}
 
 .menu-link:hover {
     color: #8a8f9a;
 }
 
 .menu-link_btn {
-    padding: 10px 25px 10px 17px;
+    padding: 15px 10px 15px 10px;
 }
 
 .menu-link_btn:hover {
@@ -186,14 +189,14 @@ a:active {
 }
 
 .play-icon {
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 .video-btn {
     display: block;
     margin: 0 auto 55px;
     max-width: 205px;
-    padding: 18px 35px;
+    padding: 10px 15px;
     font-weight: bold;
 }
 
@@ -331,6 +334,7 @@ a:active {
 
 .footer-logo_img {
     display: block;
+    width: 100%;
 }
 
 .appstore {
