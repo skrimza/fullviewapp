@@ -2,6 +2,7 @@ from fastapi import status, Request
 from fastapi import APIRouter
 from starlette.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from handlers.api_weather.api_client import ApiClient
 
 
 router = APIRouter(
@@ -21,6 +22,16 @@ async def web_app(request: Request):
         name="index.html",
         context={
             "request": request
-        }
-        
+        }   
     )
+
+
+@router.get(
+    path="/weather",
+    status_code=status.HTTP_200_OK,
+    name="weather"
+)
+async def get_weather(request: Request):
+    pass
+
+    

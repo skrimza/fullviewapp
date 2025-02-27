@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>full view app</title>
-    <!-- CEO-need -->
-    <meta name="description" content="Full View App">
-    <meta name="keywords" content="full, view, application, apple, iphone">
-    <!-- favicon and color-->
-    <meta name="theme-color" content="#7c9aca">
-    <link rel="shortcut icon" href="{{ url_for('static', path='images/favicon.png') }}">
-    <!-- Open graf tags -->
-    <meta property="og:title" content="full view app">
-    <meta property="og:description" content="Full View App">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="full view app">
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
-</head>
-
-<body>
+{% extends "base.html" %}
+{% block content %}    
     <header class="header" id="header">
         <div class="container">
             <div class="row flex-sm-row justify-content-between align-items-center header-menu-slide">
@@ -210,73 +189,25 @@
         <p class="form-text-main">Зарегистрируйтесь</p>
         <form action="" class="form-register">
             Введите почту
-            <input type="email">
+            <input type="email" id="email">
             Введите Пароль
-            <input type="password">
+            <input type="password" id="password">
             <input type="submit" value="Зарегистрироваться">
         </form>
     </div>
     <div class="weather-panel active">
         <button class="weather-panel-close">X</button>
         <p class="weather-text">Погода на сегодня</p>
-        <table>
-            <tr>
-                <th>Город</th>
-                <th>Время запроса</th>
-                <th>Информация о погоде</th>
-            </tr>
-                    <tr>
-                        <td id="weather_city"></td>
-                        <td id="weather_time"></td>
-                        <td id="weather_description"></td>
-                    </tr>                            
-            </table>
+        <form action="" class="weather-request">
+            <p class="weather-text-form">Количество дней</p>
+            <select name="days" class="weather-request-days">
+                {% for day in range(1, 14) %}
+                    <option value="{{ day }}">{{ day }}</option>
+                {% endfor %}
+            </select>
+            
+            <input type="submit" value="отправить" class="weather-submit">
+        </form>
+        {% include "wather-table.html" %}
     </div>
-    <script src="{{ url_for('static', path='js/jquery-3.6.0.min.js') }}"></script>
-    <script>
-        // mobile menu
-        $(function() {
-            const $menu_popup = $('.menu-popup');
-
-            $(".menu-triger").click(function() {
-                $('body').addClass('body_pointer');
-                $menu_popup.show(0);
-                $menu_popup.animate({
-                        left: parseInt($menu_popup.css('right'), 10) == 0 ? -$menu_popup.outerWidth() : 0
-                    },
-                    300
-                );
-                return false;
-            });
-
-            $(".menu-close").click(function() {
-                $('body').removeClass('body_pointer');
-                $menu_popup.animate({
-                        left: parseInt($menu_popup.css('left'), 10) == 0 ? -$menu_popup.outerWidth() : 0
-                    },
-                    300,
-                    function() {
-                        $menu_popup.hide(0);
-                    }
-                );
-                return false;
-            });
-
-            $(document).on('click', function(e) {
-                if (!$(e.target).closest('.menu-popup').length) {
-                    $('body').removeClass('body_pointer');
-                    $menu_popup.animate({
-                            right: parseInt($menu_popup.css('right'), 10) == 0 ? -$menu_popup.outerWidth() : 0
-                        },
-                        300,
-                        function() {
-                            $menu_popup.hide(0);
-                        }
-                    );
-                }
-            });
-        });
-    </script>
-</body>
-
-</html>
+{% endblock %}

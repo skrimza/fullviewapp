@@ -4,7 +4,7 @@ from .base import Base
 
 class Users(Base):
     email = Column(VARCHAR(254), nullable=False, unique=True)
-    hashed_password = Column(nullable=False)
+    hashed_password = Column(VARCHAR(128), nullable=False)
     is_active = Column(BOOLEAN, default=False)
     
 

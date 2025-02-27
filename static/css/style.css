@@ -735,6 +735,19 @@ input {
 .weather-panel.active {
     right: 50%;
 }
+.weather-request {
+    display: flex;
+    margin-bottom: 10px;
+}
+.weather-text-form {
+    margin-right: 10px;
+}
+select {
+    margin-right: 10px;
+}
+.weather-submit {
+    margin-bottom: 0;
+}
 table {
     width: 100%;
 }

@@ -3,6 +3,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import SecretStr
 from pathlib import Path
 
+load_dotenv()
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         frozen=True,
@@ -10,6 +12,8 @@ class Settings(BaseSettings):
     )
     HOST: str
     DATABASE_URL: str
+    API_KEY: SecretStr
+    SECRET_STR: SecretStr
 
 
 
