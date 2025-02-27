@@ -10,14 +10,14 @@
     <meta name="keywords" content="full, view, application, apple, iphone">
     <!-- favicon and color-->
     <meta name="theme-color" content="#7c9aca">
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="{{ url_for('static', path='images/favicon.png') }}">
     <!-- Open graf tags -->
     <meta property="og:title" content="full view app">
     <meta property="og:description" content="Full View App">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="full view app">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
                         <nav class="burger-navigation menu-popup">
                             <ul class="burger-list">
                                 <button class="close-btn menu-close">
-                                    <img src="images/close.png" alt="close">
+                                    <img src="{{ url_for('static', path='images/close.png') }}" alt="close">
                                 </button>
                                 
                                 <li class="burger-tab">
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-6 col-sm-4 col-md-4 d-flex">
                     <a href="#" class="logo">
-                        <img src="images/logo.png" alt="logo">
+                        <img src="{{ url_for('static', path='images/logo.png') }}" alt="logo">
                     </a>
                 </div>
                 <div class="col-12 col-sm-4 col-md-4 d-flex justify-content-center justify-content-sm-end">
@@ -59,7 +59,7 @@
                             </li>
                             <li class="menu-item menu-item_contacts">
                                 <a href="" class="menu-link">
-									Contacts
+									Мои данные
 								</a>
                             </li>
                             <li class="menu-item menu-item-btn">
@@ -80,7 +80,7 @@
                         Точный прогноз погоды дарит уверенность в каждом дне. Ясные данные о солнце, дожде и ветре помогут вам спланировать всё до мелочей без труда.
                     </p>
                     <a href="#" class="video-btn btn">
-                        <img src="images/play-icon.svg" alt="arrow-icon" class="play-icon"> Прогноз на завтра
+                        <img src="{{ url_for('static', path='images/play-icon.svg') }}" alt="arrow-icon" class="play-icon"> Прогноз на завтра
                     </a>
                     <div class="phone-weather mx-auto">
 
@@ -93,7 +93,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <img src="images/Lock_Icon.svg" alt="lock-icon" class="lock-icon">
+                    <img src="{{ url_for('static', path='images/Lock_Icon.svg') }}" alt="lock-icon" class="lock-icon">
                     <h3 class="lock-title">
                         Погода в реальном времени
                         </h2>
@@ -105,7 +105,7 @@
                         </p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="images/Clock_Icon.svg" alt="lock-icon" class="lock-icon">
+                    <img src="{{ url_for('static', path='images/Clock_Icon.svg') }}" alt="lock-icon" class="lock-icon">
                     <h3 class="lock-title">
                         Прогноз без лишних сложностей
                         </h2>
@@ -140,7 +140,7 @@
                     <div class="protect-button d-flex flex-column flex-sm-row justify-content-between">
                         <a href="#" class="protect-btn btn d-flex justify-content-between">
 							Проверь нас
-							<img src="images/Arrow_Icon.svg" alt="" class="protect-btn_img">
+							<img src="{{ url_for('static', path='images/Arrow_Icon.svg') }}" alt="" class="protect-btn_img">
 						</a>
                     </div>
                 </div>
@@ -165,10 +165,10 @@
                     </h5>
                     <div class="partner-label d-flex justify-content-center justify-content-lg-start">
                         <a href="#" class="dropbox">
-                            <img src="images/Dropbox_Logo.svg" alt="">
+                            <img src="{{ url_for('static', path='images/Dropbox_Logo.svg') }}" alt="">
                         </a>
                         <a href="#" class="evernote">
-                            <img src="images/Evernote_Logo.svg" alt="">
+                            <img src="{{ url_for('static', path='images/Evernote_Logo.svg') }}" alt="">
                         </a>
                     </div>
                 </div>
@@ -185,19 +185,54 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-3">
                     <a href="#" class="logo footer-logo">
-                        <img src="images/logo.png" alt="logo" class="footer-logo_img">
+                        <img src="{{ url_for('static', path='images/logo.png') }}" alt="logo" class="footer-logo_img">
                     </a>
                     <p class="footer-left_text">
                         It was some time before he obtained any answer, and the reply, when made, was unpropitious.
                     </p>
                     <a href="#" class="appstore">
-                        <img src="images/Download.svg" alt="" class="appstore_img">
+                        <img src="{{ url_for('static', path='images/Download.svg') }}" alt="" class="appstore_img">
                     </a>
                 </div>
             </div>
         </div>
     </footer>
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <div class="form-wrapper">
+        <button class="form-wrapper-close">X</button>
+        <p class="form-text-main">Войдите в свой аккаунт</p>
+        <form action="" class="form-login">
+            Введите почту
+            <input type="email">
+            Введите Пароль
+            <input type="password">
+            <input type="submit" value="Войти">
+        </form>
+        <p class="form-text-main">Зарегистрируйтесь</p>
+        <form action="" class="form-register">
+            Введите почту
+            <input type="email">
+            Введите Пароль
+            <input type="password">
+            <input type="submit" value="Зарегистрироваться">
+        </form>
+    </div>
+    <div class="weather-panel active">
+        <button class="weather-panel-close">X</button>
+        <p class="weather-text">Погода на сегодня</p>
+        <table>
+            <tr>
+                <th>Город</th>
+                <th>Время запроса</th>
+                <th>Информация о погоде</th>
+            </tr>
+                    <tr>
+                        <td id="weather_city"></td>
+                        <td id="weather_time"></td>
+                        <td id="weather_description"></td>
+                    </tr>                            
+            </table>
+    </div>
+    <script src="{{ url_for('static', path='js/jquery-3.6.0.min.js') }}"></script>
     <script>
         // mobile menu
         $(function() {

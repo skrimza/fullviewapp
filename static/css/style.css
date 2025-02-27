@@ -665,3 +665,79 @@ section:hover .app-screen {
         margin-top: 20px;
     }
 }
+
+
+/* form styles */
+
+.form-wrapper {
+    position: fixed;
+    right: -100%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+    width: 80%;
+    height: 80%;
+    background: #FFF;
+    z-index: 100;
+    border-radius: 20px;
+    border: 1px solid #949494;
+    transition: all 0.5s ease;
+    padding: 10px;
+}
+.form-wrapper.active {
+    right: 50%;
+}
+.form-wrapper-close,
+.weather-panel-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid;
+}
+.form-text-main
+.weather-text {
+    font-size: 24px;
+    text-align: center;
+}
+.weather-text {
+    margin-bottom: 20px;
+}
+.form-login,
+.form-register {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    align-items: center;
+    margin: auto;
+}
+input {
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid #8c8f94;
+}
+.weather-panel {
+    position: fixed;
+    right: -100%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+    background: #FFF;
+    z-index: 100;
+    border-radius: 20px;
+    border: 1px solid #949494;
+    transition: all 0.5s ease;
+    padding: 10px;
+    width: 50%;
+    height: 50%;
+    transition: all 0.5s ease;
+}
+.weather-panel.active {
+    right: 50%;
+}
+table {
+    width: 100%;
+}
+th, td {
+    border: 1px solid;
+}
