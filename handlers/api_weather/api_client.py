@@ -15,5 +15,8 @@ class ApiClient:
             }
         )
         return get_weather.json()
+    
+    def translate_city(self):
+        pass
 
 

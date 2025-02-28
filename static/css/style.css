@@ -754,3 +754,18 @@ table {
 th, td {
     border: 1px solid;
 }
+.output {
+    position: fixed;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+    z-index: 103;
+    display: none;
+    background: #85c4be;
+    color: #26272d;
+}
+.output.active {
+    display: block;
+    max-width: 350px;
+    padding: 10px;
+}

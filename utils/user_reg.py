@@ -3,6 +3,7 @@ from pydantic import EmailStr, Field
 from passlib.context import CryptContext
 from jose import jwt, JWTError
 from datetime import timedelta, datetime
+from typing import Dict
 from config import SETTINGS
 
 
@@ -16,7 +17,8 @@ class RegForm(BaseValidation):
     password: str = Field(
         default=...,
         title='User password',
-        examples=['Qwerty1!']
+        examples=['Qwerty1!'],
+        min_length=7
     )
     
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -24,15 +26,12 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 def verify_password(password: str, hash_password: str) -> bool:
     return pwd_context.verify(secret=password, hash=hash_password)
 
-def create_access_token(sub: str) -> str:
-    return jwt.encode(
-        claims={
-            'sub': sub,
-            'exp': datetime.utcnow() + timedelta(minutes=30)
-        },
-        key=SETTINGS.SECRET_STR.get_secret_value(),
-        algorithm="HS256"
-    )
+def create_access_token(data: Dict[str, str]) -> str:
+    to_encode = data.copy()
+    expire = datetime.utcnow() + timedelta(minutes=30)
+    to_encode.update({"exp": expire})
+    encoded_jwt = jwt.encode(to_encode, SETTINGS.SECRET_STR.get_secret_value(), algorithm="HS256")
+    return encoded_jwt
 
 
 def verify_access_token(token: str) -> dict:

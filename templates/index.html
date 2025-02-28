@@ -181,9 +181,9 @@
         <p class="form-text-main">Войдите в свой аккаунт</p>
         <form action="" class="form-login">
             Введите почту
-            <input type="email">
+            <input type="email" id="login-email">
             Введите Пароль
-            <input type="password">
+            <input type="password" id="login-password">
             <input type="submit" value="Войти">
         </form>
         <p class="form-text-main">Зарегистрируйтесь</p>
@@ -210,4 +210,5 @@
         </form>
         {% include "wather-table.html" %}
     </div>
+    <div class="output"></div>
 {% endblock %}

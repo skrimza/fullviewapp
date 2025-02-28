@@ -6,7 +6,6 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from models.base_models import Users
 from typing import Annotated
-import logging
 
 router = APIRouter()
 
@@ -25,6 +24,8 @@ async def register_user(form: RegForm, session: Annotated[AsyncSession, Depends(
     user = result.scalar_one_or_none()
     if user:
         raise HTTPException(status_code=400, detail="Email already registered")
+    if not form.password:
+        raise HTTPException(status_code=400, detail="Password cannot be empty")
     hashed_password = pwd_context.hash(form.password)
     new_user = Users(email=form.email, hashed_password=hashed_password)
     session.add(new_user)
@@ -48,9 +49,7 @@ async def login(form: RegForm, session: Annotated[AsyncSession, Depends(get_sess
 
         if not verify_password(form.password, user.hashed_password):
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Incorrect password")
-
         token = create_access_token(data={"sub": str(user.id)})
         return TokenData(access_token=token)
-
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
