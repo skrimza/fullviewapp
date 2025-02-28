@@ -15,7 +15,11 @@ async def get_session() -> AsyncSession:
     async with Base.session() as session:
         yield session
 
-@router.post("/register", status_code=status.HTTP_201_CREATED, response_model=RegForm)
+@router.post(
+    path="/register", 
+    status_code=status.HTTP_201_CREATED, 
+    response_model=RegForm
+)
 async def register_user(form: RegForm, session: Annotated[AsyncSession, Depends(get_session)]):
     result = await session.execute(select(Users).where(Users.email == form.email))
     user = result.scalar_one_or_none()
@@ -27,6 +31,7 @@ async def register_user(form: RegForm, session: Annotated[AsyncSession, Depends(
     await session.commit()
     await session.refresh(new_user)
     return JSONResponse({"email": new_user.email, "message": "User registered successfully"})
+
 
 @router.post(
     path="/login",
