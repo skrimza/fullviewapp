@@ -9,7 +9,7 @@ from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from models.base import Base, get_session
+from models.base import get_session
 from models.base_models import Users
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
@@ -42,19 +42,6 @@ def create_access_token(data: Dict[str, str]) -> str:
         algorithm="HS256"
     )
     return encoded_jwt
-
-
-def verify_access_token(token: str) -> dict:
-    try:
-        payload = jwt.decode(
-            token=token,
-            key=SETTINGS.SECRET_STR.get_secret_value(),
-            algorithms="HS256"
-        )
-    except JWTError:
-        return {}
-    else:
-        return payload
 
 async def get_current_user(
     token: str = Depends(oauth2_scheme), 

@@ -1,6 +1,10 @@
 from sqlalchemy.orm import DeclarativeBase, declared_attr
 from sqlalchemy import Column, Integer
-from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine, AsyncSession
+from sqlalchemy.ext.asyncio import (
+    async_sessionmaker, 
+    create_async_engine, 
+    AsyncSession
+)
 from config import SETTINGS
 
 

@@ -1,4 +1,13 @@
-from sqlalchemy import Column, VARCHAR, BOOLEAN, DECIMAL, DateTime, TEXT, ForeignKey, INTEGER
+from sqlalchemy import (
+    Column, 
+    VARCHAR, 
+    BOOLEAN, 
+    DECIMAL, 
+    DateTime, 
+    TEXT, 
+    ForeignKey, 
+    INTEGER
+)
 from .base import Base
 from datetime import datetime
 
