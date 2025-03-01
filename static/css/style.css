@@ -769,3 +769,17 @@ th, td {
     max-width: 350px;
     padding: 10px;
 }
+.data-weather {
+    position: fixed;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #b8b6b6;
+    padding: 10px;
+    display: none;
+}
+.data-weather.active {
+    display: block;
+}

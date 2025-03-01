@@ -15,9 +15,9 @@
                                 </button>
                                 
                                 <li class="burger-tab">
-                                    <a href="#" class="burger-link">
+                                    <button class="burger-link data-link">
                                         Мои Данные
-                                    </a>
+                                    </button>
                                 </li>
                             </ul>
                         </nav>
@@ -37,14 +37,14 @@
 								</a>
                             </li>
                             <li class="menu-item menu-item_contacts">
-                                <a href="" class="menu-link">
+                                <button class="menu-link data-link">
 									Мои данные
-								</a>
+								</button>
                             </li>
                             <li class="menu-item menu-item-btn">
-                                <a href="" class="menu-link menu-link_btn btn">
+                                <button class="menu-link menu-link_btn btn form-btn">
                                      Прогноз погоды
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </nav>
@@ -58,9 +58,9 @@
                     <p class="header-text">
                         Точный прогноз погоды дарит уверенность в каждом дне. Ясные данные о солнце, дожде и ветре помогут вам спланировать всё до мелочей без труда.
                     </p>
-                    <a href="#" class="video-btn btn">
+                    <button class="video-btn btn form-btn">
                         <img src="{{ url_for('static', path='images/play-icon.svg') }}" alt="arrow-icon" class="play-icon"> Прогноз на завтра
-                    </a>
+                    </button>
                     <div class="phone-weather mx-auto">
 
                     </div>
@@ -117,10 +117,10 @@
                         Данные всегда свежие — солнце, дождь или ветер давно не были так предсказуемы, ведь мы следим за ними для вас.
                     </p>
                     <div class="protect-button d-flex flex-column flex-sm-row justify-content-between">
-                        <a href="#" class="protect-btn btn d-flex justify-content-between">
+                        <button class="protect-btn form-btn btn d-flex justify-content-between">
 							Проверь нас
 							<img src="{{ url_for('static', path='images/Arrow_Icon.svg') }}" alt="" class="protect-btn_img">
-						</a>
+						</button>
                     </div>
                 </div>
             </div>
@@ -176,7 +176,7 @@
             </div>
         </div>
     </footer>
-    <div class="form-wrapper active">
+    <div class="form-wrapper">
         <button class="form-wrapper-close">X</button>
         <p class="form-text-main">Войдите в свой аккаунт</p>
         <form action="" class="form-login">
@@ -200,15 +200,19 @@
         <p class="weather-text">Погода на сегодня</p>
         <form action="" class="weather-request">
             <p class="weather-text-form">Количество дней</p>
-            <select name="days" class="weather-request-days">
+            <select name="days" class="weather-request-days" id="day-select">
                 {% for day in range(1, 14) %}
                     <option value="{{ day }}">{{ day }}</option>
                 {% endfor %}
             </select>
-            
+            <input type="text" value="Введите город" id="city">
             <input type="submit" value="отправить" class="weather-submit">
         </form>
         {% include "wather-table.html" %}
     </div>
     <div class="output"></div>
+    <div class="data-weather">
+        <button class="weather-data-close">X</button>
+        {% include "data-weather.html" %}
+    </div>
 {% endblock %}

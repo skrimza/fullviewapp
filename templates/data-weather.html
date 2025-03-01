@@ -1,0 +1,16 @@
+<table class="weather-data-table">
+    <tr>
+        <th>Город</th>
+        <th>Температура</th>
+        <th>Описание</th>
+        <th>Время запроса</th>
+    </tr>
+    {% for entry in weather_entries %}
+    <tr>
+        <td>{{ entry.city }}</td>
+        <td>{{ entry.temperature }}°C</td>
+        <td>{{ entry.description }}</td>
+        <td>{{ entry.timestamp }}</td>
+    </tr>
+    {% endfor %}
+</table>

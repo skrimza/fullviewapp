@@ -6,13 +6,10 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from models.base_models import Users
 from typing import Annotated
+from models.base import get_session
 
 router = APIRouter()
 
-async def get_session() -> AsyncSession:
-    from models.base import Base
-    async with Base.session() as session:
-        yield session
 
 @router.post(
     path="/register", 

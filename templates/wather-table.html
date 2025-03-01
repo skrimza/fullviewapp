@@ -1,12 +1,27 @@
-<table>
+<table class="weather-table">
     <tr>
         <th>Локация</th>
         <th>Время запроса</th>
         <th>Информация о погоде</th>
     </tr>
         <tr>
-            <td id="weather_city"></td>
-            <td id="weather_time"></td>
-            <td id="weather_description"></td>
+            <td id="weather_city">{{ city }}</td>
+            <td id="weather_time">{{ time }}</td>
+            <td id="weather_description">
+                <table class="nested-table">
+                    <tr>
+                        <th>Дата</th>
+                        <th>Температура днём</th>
+                        <th>Температура ночью</th>
+                    </tr>
+                    {% for day in data %}
+                    <tr>
+                        <td>{{ day.date }}</td>
+                        <td>max: {{ day.day.maxtemp_c }}°C</td>
+                        <td>min: {{ day.day.mintemp_c }}°C</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </td>
         </tr>                            
 </table>
