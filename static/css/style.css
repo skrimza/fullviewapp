@@ -82,8 +82,11 @@ a:active {
     padding-top: 55px;
     padding-bottom: 454px;
     background: url('../images/header.png') no-repeat center top / cover;
+    position: relative;
 }
-
+.header-row {
+    height: 100svh;
+}
 .burger {
     display: none;
 }
@@ -611,7 +614,7 @@ section:hover .app-screen {
 
 @media screen and (max-width: 575px) {
     .header {
-        padding-bottom: 375px;
+        padding-bottom: 0;
     }
     .menu-navigation {
         display: none;
@@ -627,14 +630,20 @@ section:hover .app-screen {
         width: 100%;
     }
     .header-title {
+        margin-top: 40px;
         font-size: 36px;
     }
     .header-text {
         font-size: 16px;
-        margin-bottom: 45px;
+        margin-bottom: 25px;
     }
     .phone-weather {
         height: 75%;
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);
+        width: 80%;
     }
     .lock-title,
     .protect-title,
@@ -652,7 +661,7 @@ section:hover .app-screen {
         max-width: 100%;
     }
     .video-btn {
-        margin-bottom: 50px;
+        margin-bottom: 25px;
     }
     .iphone-number {
         height: 270px;
